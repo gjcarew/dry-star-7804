@@ -41,15 +41,7 @@ RSpec.describe 'When I visit a doctor show page' do
       patient3 = doctor.patients.create!(name: 'Charlie Kelly', age: 31 )
 
       visit doctor_path(doctor)
-      within "#patient-#{patient1.id}" do
-        expect(page).to have_content('Remove patient from caseload')
-      end
-      within "#patient-#{patient2.id}" do
-        expect(page).to have_content('Remove patient from caseload')
-      end
-      within "#patient-#{patient2.id}" do
-        expect(page).to have_content('Remove patient from caseload')
-      end
+      expect(page).to have_content('Remove patient from caseload', count: 3)
     end
 
     it 'When I click that button, I am returned to the doctor show page where the patient
