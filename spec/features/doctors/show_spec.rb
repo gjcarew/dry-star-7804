@@ -17,7 +17,7 @@ RSpec.describe 'When I visit a doctor show page' do
     expect(page).to have_content(hospital.name)
   end
 
-  it 'I see the names of all the patients the doctor has' do
+  xit 'I see the names of all the patients the doctor has' do
     hospital = Hospital.create!(name: 'Philadephia General')
     doctor = hospital.doctors.create!(name: 'Mantis Toboggan', specialty: 'Toe Surgery', university: 'No')
     patient1 = doctor.patients.create!(name: 'Dennis Reynolds', age: 32)
