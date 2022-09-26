@@ -62,7 +62,7 @@ RSpec.describe 'When I visit a doctor show page' do
 
       visit doctor_path(doctor)
       within "#patient-#{patient1.id}" do
-        click_button 'Remove patient from caseload'
+        click_link 'Remove patient from caseload'
       end
 
       expect(current_path).to eq(doctor_path(doctor))
