@@ -43,6 +43,7 @@ RSpec.describe Hospital do
         patient3 = doctor.patients.create!(name: 'Charlie Kelly', age: 31 )
         patient4 = doctor2.patients.create!(name: 'Rickety Cricket', age: 37)
         patient5 = doctor2.patients.create!(name: 'Dumpster Baby', age: 1 )
+        doctor3.patients << patient1
 
         expect(hospital.doctor_patient_count).to eq([doctor, doctor2, doctor3])
       end
