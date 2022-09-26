@@ -16,19 +16,19 @@ RSpec.describe 'When I visit a hospital show page' do
     patient5 = @doctor2.patients.create!(name: 'Dumpster Baby', age: 1 )
   end
 
-  xit 'I see the hospital name' do
+  it 'I see the hospital name' do
     visit hospital_path(@hospital)
     expect(page).to have_content(@hospital.name)
   end
 
-  xit 'I see the names of all doctors that work at this hospital' do
+  it 'I see the names of all doctors that work at this hospital' do
     visit hospital_path(@hospital)
     expect(page).to have_content(@doctor.name)
     expect(page).to have_content(@doctor2.name)
     expect(page).not_to have_content(@doctor3.name)
   end
 
-  xit 'Next to each doctor is the number of patients the doctor has' do 
+  it 'Next to each doctor is the number of patients the doctor has' do 
     visit hospital_path(@hospital)
 
     within "#doctor-#{@doctor.id}" do
@@ -38,10 +38,5 @@ RSpec.describe 'When I visit a hospital show page' do
     within "#doctor-#{@doctor2.id}" do
       expect(page).to have_content('2 patients')
     end
-  end
-
-  xit 'The list of doctors is ordered from most patients to least patients' do 
-    expect(all(".doctors")[0].text).to eq('Mantis Toboggan: 3 patients')
-    expect(all(".doctors")[1].text).to eq('Philly Phanatic: 3 patients')
   end
 end
