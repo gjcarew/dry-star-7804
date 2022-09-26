@@ -11,6 +11,7 @@ RSpec.describe 'When I visit the patient index page' do
     patient3 = doctor.patients.create!(name: 'Charlie Kelly', age: 31 )
     patient4 = doctor2.patients.create!(name: 'Rickety Cricket', age: 37)
     patient5 = doctor2.patients.create!(name: 'Dumpster Baby', age: 1 )
+    visit patients_path
 
     expect(page).to have_content(patient1.name)
     expect(page).to have_content(patient2.name)
@@ -29,6 +30,7 @@ RSpec.describe 'When I visit the patient index page' do
     patient2 = doctor.patients.create!(name: 'Dee Reynolds', age: 32)
     patient3 = doctor.patients.create!(name: 'Charlie Kelly', age: 31 )
     patient4 = doctor2.patients.create!(name: 'Rickety Cricket', age: 37)
+    visit patients_path
 
     expect(all(".patient-name")[0].text).to have_content(patient3.name)
     expect(all(".patient-name")[1].text).to have_content(patient2.name)
